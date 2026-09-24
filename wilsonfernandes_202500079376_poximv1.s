@@ -1,5 +1,5 @@
 #
-# Poxim-V - programa de teste de cobertura (teste.s)
+# Poxim-V - programa de teste de cobertura
 #
 # #IA
 # #Claude["Preciso escrever um arquivo .s para testar o meu simulador. Analise o poxim-v.py (cobertura das 45 instrucoes, 5 enderecos e 8 operandos por instrucao, 13 usos por registrador) e os exemplos fatorial.s e mul_div_rem.s, e me guie em blocos na construcao do arquivo .s ao mesmo tempo que explica a teoria por tras das instrucoes de cada bloco"]
