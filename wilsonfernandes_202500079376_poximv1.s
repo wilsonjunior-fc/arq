@@ -1,8 +1,7 @@
 #
 # Poxim-V - programa de teste de cobertura
 #
-# #IA
-# #Claude["Preciso escrever um arquivo .s para testar o meu simulador. Analise o poxim-v.py (cobertura das 45 instrucoes, 5 enderecos e 8 operandos por instrucao, 13 usos por registrador) e os exemplos fatorial.s e mul_div_rem.s, e me guie em blocos na construcao do arquivo .s ao mesmo tempo que explica a teoria por tras das instrucoes de cada bloco"]
+# #IA #CLAUDE["Preciso escrever um arquivo .s para testar o meu simulador. Analise o poxim-v.py (cobertura das 45 instrucoes, 5 enderecos e 8 operandos por instrucao, 13 usos por registrador) e os exemplos fatorial.s e mul_div_rem.s, e me guie em blocos na construcao do arquivo .s ao mesmo tempo que explica a teoria por tras das instrucoes de cada bloco"]
 #
 
 # Code section
@@ -10,7 +9,7 @@
 .global main
 main:
     # Setup: ponteiros seguros (memoria: 0x80000000 a 0x80007fff)
-    # #Claude["Bloco 1: Como declaro os ponteiros sp e gp como ponteiros seguros?"]
+    # #IA #CLAUDE["Bloco 1: Como declaro os ponteiros sp e gp como ponteiros seguros?"]
     lui    sp, 0x80008
     addi   sp, sp, -256
     lui    gp, 0x80008
@@ -48,7 +47,7 @@ main:
     addi   t6,  zero, 8
 
     # Bloco 1: instrucoes tipo R (ALU registrador-registrador)
-    # #Claude["Bloco 1: Qual seria a estrutura para criar as intrução do tipo R (add, sub, and, or, xor, sll, srl, sra, slt, sltu)?"]
+    # #IA #CLAUDE["Bloco 1: Qual seria a estrutura para criar as intrucao do tipo R (add, sub, and, or, xor, sll, srl, sra, slt, sltu)?"]
 
     # add: soma
     add    t4, zero, tp
@@ -121,7 +120,7 @@ main:
     sltu   s10, s3, a7
 
     # Bloco 2: instrucoes de memoria (Loads/Stores)
-    # #Claude["Bloco 2: Qual a estrutura para criar as instruções de memória"?"]
+    # #IA #CLAUDE["Bloco 2: Qual a estrutura para criar as instrucoes de memoria?"]
     # sb: armazena byte
     sb     gp, 64(sp)
     sb     s1, 65(gp)
@@ -179,7 +178,7 @@ main:
     lhu    a4, 44(sp)
 
     # Bloco 3: ALU com imediato, deslocamentos por imediato, lui e auipc
-    # #Claude["Bloco 3: Estrutura para as intruções addi, andi, slti, sltiu, ori, xori, slli, srli, srai, lui, auipc"]
+    # #IA #CLAUDE["Bloco 3: Estrutura para as intrucoes addi, andi, slti, sltiu, ori, xori, slli, srli, srai, lui, auipc"]
 
     # addi: soma com imediato
     addi   s7, sp, 5
@@ -259,7 +258,7 @@ main:
     auipc  s1, 0x7ffff
 
     # Bloco 4: extensao M (multiplicacao e divisao)
-    # #Claude["Bloco 4: Estrutura para as intruções com extensão M (multiplicacao e divisao)"]
+    # #IA #CLAUDE["Bloco 4: Estrutura para as intrucoes com extensao M (multiplicacao e divisao)"]
 
     addi   t2, zero, 7
     addi   t6, zero, -3
@@ -333,7 +332,7 @@ main:
     remu   s2, ra, s5
 
     # Bloco 5: desvios condicionais, jal e jalr
-    # #Claude["Bloco 5: Estrutura correta para as intruções de beq, bne, blt, bge, bltu, bgeu, jal e jalr"]
+    # #IA #CLAUDE["Bloco 5: Estrutura correta para as intrucoes de beq, bne, blt, bge, bltu, bgeu, jal e jalr"]
 
     # beq: desvia se igual
     beq    s0, s1, 1f
